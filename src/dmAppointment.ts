@@ -45,7 +45,7 @@ const yes_or_no: { [index:string]:{yes_no?:boolean} } =
 }
 
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
-const rasaurl = 'https://guess-my-intent.herokuapp.com/model/parse'
+const rasaurl = 'https://guess-the-intent.herokuapp.com/model/parse'
 const nluRequest = (text: string) =>
     fetch(new Request(proxyurl + rasaurl, {
         method: 'POST',
@@ -116,13 +116,14 @@ export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
                 always:[
                 { target: 'todo_list', cond: (context) => context.command === 'todo_item' },
                 { target: 'set_timer', cond: (context) => context.command === 'timer' },
-                { target: 'make_appointment', cond: (context) => context.command === 'appointment' }
+                { target: 'make_appointment', cond: (context) => context.command === 'appointment' },
+                { target: 'other_intents', cond: (context) => context.command === 'nlu_fallback' }
                 ]
             },
             
            
         
-        //Three choices according to intent
+        //3+1 choices according to intent
         make_appointment: {
             initial: "prompt",
             on: { ENDSPEECH: "who" },
@@ -138,6 +139,15 @@ export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
             on: { ENDSPEECH: "init" },
             states: { prompt: { entry: say("Sure, setting a timer for you.") } }
                 },
+        other_intents: {
+            initial: "prompt",
+            on: { ENDSPEECH: "welcome" },
+            states: { 
+                prompt: { 
+                    entry: say("I don't know how to do that. But I can make an appointment, make a to do list, or set a timer for you.") 
+                    } 
+                }
+            },
 
         //State Q1
         who: {
