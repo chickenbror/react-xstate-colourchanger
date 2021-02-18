@@ -4,7 +4,7 @@ import * as ReactDOM from "react-dom";
 import { Machine, assign, send, State } from "xstate";
 import { useMachine, asEffect } from "@xstate/react";
 import { inspect } from "@xstate/inspect";
-import { dmMachine } from "./dmColourChanger";
+import { dmMachine } from "./dmAppointment";
 
 
 inspect({
@@ -69,6 +69,7 @@ const machine = Machine<SDSContext, any, SDSEvent>({
             recLogResult: (context: SDSContext) => {
                 /* context.recResult = event.recResult; */
                 console.log('<< ASR: ' + context.recResult);
+
             },
             test: () => {
                 console.log('test')
@@ -125,7 +126,7 @@ function App() {
         devTools: true,
         actions: {
             recStart: asEffect(() => {
-                console.log('Ready to receive a color command.');
+                console.log('Ready to receive a voice input.');
                 listen({
                     interimResults: false,
                     continuous: true
@@ -134,10 +135,6 @@ function App() {
             recStop: asEffect(() => {
                 console.log('Recognition stopped.');
                 stop()
-            }),
-            changeColour: asEffect((context) => {
-                console.log('Repainting...');
-                document.body.style.background = context.recResult;
             }),
             ttsStart: asEffect((context, effect) => {
                 console.log('Speaking...');
@@ -167,13 +164,14 @@ function App() {
 /* RASA API
  *  */
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
-const rasaurl = 'https://rasa-nlu-api-00.herokuapp.com/model/parse'
+const rasaurl = 'https://guess-my-intent.herokuapp.com/model/parse'
 const nluRequest = (text: string) =>
     fetch(new Request(proxyurl + rasaurl, {
         method: 'POST',
         headers: { 'Origin': 'http://maraev.me' }, // only required with proxy
         body: `{"text": "${text}"}`
-    }))
+        })
+        )
         .then(data => data.json());
 
 const rootElement = document.getElementById("root");
