@@ -7,6 +7,11 @@ interface SDSContext {
     nluData: any;
     ttsAgenda: string;
     person: string,
+    weekday: string,
+    time: string,
+    yes_no: boolean,
+    command: string,
+    
 
 }
 
