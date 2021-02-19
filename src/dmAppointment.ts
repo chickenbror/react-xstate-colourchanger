@@ -18,6 +18,8 @@ const grammar: { [index:string]: { person?:string, weekday?:string, time?:string
     "John": { person: "John Appleseed"}, "Goofy": { person: "Goofy Dog"},
     "Mickey": { person: "Mickey Mouse"},"Minnie": { person: "Minnie Mouse"},
     "Donald": { person: "Donald Duck"},"Daisy": { person: "Daisy Duck"},
+    "Lisa": { person: "Lisa Simpson"},"Homer": { person: "Homer Simpson"},
+    "Monty": { person: "Montgomery Burns"},"Apu": { person: "Apu Nahasapeemapetilon"},
 
     //Days of week
     "on Monday": { weekday: "Monday" }, "on Tuesday": { weekday: "Tuesday" }, "on Wednesday": { weekday: "Wednesday" },
@@ -83,7 +85,7 @@ export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
             //welcome child-states
             states: {
                 prompt: {
-                    entry: say("What would you like to do?"),
+                    entry: say("Hello, what would you like to do?"),
                     on: { ENDSPEECH: "ask" }
                     },
                 ask: {entry: listen()},
