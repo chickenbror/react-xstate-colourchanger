@@ -4,7 +4,7 @@ import * as ReactDOM from "react-dom";
 import { Machine, assign, send, State } from "xstate";
 import { useMachine, asEffect } from "@xstate/react";
 import { inspect } from "@xstate/inspect";
-import { dmMachine } from "./dmAppointment";
+import { dmMachine } from './dmAppointmentPlus';
 
 
 inspect({
@@ -44,6 +44,7 @@ const machine = Machine<SDSContext, any, SDSEvent>({
                                 assign((_context, event) => { return { recResult: event.value } })],
                             target: '.match'
                         },
+                        // TIMEOUT:"..recStop", //mic off so that say() can work
                         RECOGNISED: 'idle'
                     },
                     states: {
@@ -143,11 +144,11 @@ function App() {
             ttsCancel: asEffect((context, effect) => {
                 console.log('TTS STOP...');
                 cancel()
-            })
-            /* speak: asEffect((context) => {
-	     * console.log('Speaking...');
-             *     speak({text: context.ttsAgenda })
-             * } */
+            }),
+            speak: asEffect((context) => {
+	            console.log('Speaking...');
+                speak({text: context.ttsAgenda })
+            }) 
         }
     });
 
