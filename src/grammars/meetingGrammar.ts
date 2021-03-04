@@ -60,11 +60,11 @@ export const grammar = `
    //Make Meeting Command//
    <rule id="MakeMeeting">
         <one-of>  
-            <item> create a meeting </item> <item> create an appointment </item> 
+            <item> create a meeting </item> <item> create an appointment </item> <item> create meeting </item> 
 			<item> make a meeting </item> <item> make an appointment </item>
             <item> we have a meeting </item> <item> have a meeting </item>
             <item> i am meeting </item> <item> i'm meeting </item> <item> meet </item> <item> i have a meeting </item>
-            <item> meeting </item> 
+            <item> meeting </item> <item> i'm going to meet </item> 
         </one-of>
    </rule>
 

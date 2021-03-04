@@ -12,7 +12,7 @@ function listen(): Action<SDSContext, SDSEvent> {
 
 function sharedRecognitions() {
     return [ 
-        // {on:{TIMEOUT:'.promptAgain'}},
+        
         { target: '#root.dm.help', cond: (context:SDSContext) =>  needHelp(context.recResult) },
         { target: ".nomatch" }
         ]
@@ -31,7 +31,7 @@ MachineConfig<SDSContext, any, SDSEvent> {
             //Fallback states
             //*TECH ISSUE...? say() won't work unless mic is off (when not listening), which depends on a RECOGNISED event being sent first
                 // >>But upon RECOGNISED, it will say(reprompt) then go straight to .nomatch
-                // >>>Solution: additional onTIMEOUT under onRECOGNISED to prevent going to .nomatch
+                // >>> Causes another silence when going to dm.goodbye ( say() in goodbye not heard...? )
                 
             promptAgain: {entry: [send("RECOGNISED"), say(prompt2)], 
                     always: [
