@@ -4,3 +4,17 @@ To run:
   npm install
   npm start
 #+end_src
+
+
+#Lab 4
+Pt1 Warm-up: recognising funny quotes
+>>src/grammars/quotesGrammar.ts (console log in dmColourchanger)
+
+Pt2 Recognizing simple commands
+>>dmSmartHome.ts + commandGrammar.ts
+
+Pt3 Improving your voice interface
+>> dmAppointmentPlus.ts 
+
+VG pt Frame-based dialogue system
+>> dmAppointmentPro.ts + meetingGrammar.ts
