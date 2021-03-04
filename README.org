@@ -7,14 +7,14 @@ To run:
 
 
 #Lab 4
-Pt1 Warm-up: recognising funny quotes
->>src/grammars/quotesGrammar.ts (console log in dmColourchanger)
+Pt1 Warm-up: recognising funny quotes \n
+>>src/grammars/quotesGrammar.ts (console log in dmColourchanger) \n
 
-Pt2 Recognizing simple commands
->>dmSmartHome.ts + commandGrammar.ts
+Pt2 Recognizing simple commands \n
+>>dmSmartHome.ts + commandGrammar.ts \n
 
-Pt3 Improving your voice interface
->> dmAppointmentPlus.ts 
+Pt3 Improving your voice interface \n
+>> dmAppointmentPlus.ts \n
 
-VG pt Frame-based dialogue system
->> dmAppointmentPro.ts + meetingGrammar.ts
+VG pt Frame-based dialogue system \n
+>> dmAppointmentPro.ts + meetingGrammar.ts \n
