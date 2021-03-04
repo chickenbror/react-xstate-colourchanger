@@ -6,19 +6,22 @@ interface SDSContext {
     recResult: string;
     nluData: any;
     ttsAgenda: string;
-    person: string,
-    weekday: string,
-    time: string,
-    yes_no: boolean,
-    command: string,
-    
-
+    query: string;
+    snippet: string;
+    person: string;
+    weekday: string;
+    time: string;
+    yes_no: boolean;
+    command: string;
+    prompts: number = 0
 }
 
 type SDSEvent =
     | { type: 'CLICK' }
+    | { type: 'TIMEOUT' }
     | { type: 'RECOGNISED' }
     | { type: 'ASRRESULT', value: string }
     | { type: 'ENDSPEECH' }
     | { type: 'LISTEN' }
-    | { type: 'SPEAK', value: string };
+    | { type: 'SPEAK', value: string }
+;
