@@ -2,7 +2,7 @@
 
 $root mymeeting
 
-$mymeeting [$Please] [$Meet] [$Person] [$Day] [$Time] [$Please];
+$mymeeting [$Please] [$Meet] [$Person] [$Day] [$Time] [$Please] [punctuation];
 
 $Please please|thanks|thank you ...
 $Meet meet|create a meeting with| I'm meeting ...
@@ -36,6 +36,7 @@ export const grammar = `
     </one-of>
     
     <item repeat="0-"><ruleref uri="#Politeness"/></item>
+    <item repeat="0-">.</item><item repeat="0-">!</item><item repeat="0-">?</item>
     
     <tag>
      out.meeting=new Object();
@@ -51,7 +52,7 @@ export const grammar = `
         <one-of>  
             <item> please </item> <item> thanks </item> <item> thank you </item> 
 			<item> could you </item> <item> would you </item> <item> can you </item> 
-			<item> will you </item> 
+			<item> will you </item> <item> i would like to </item> 
         </one-of>
    </rule>
 

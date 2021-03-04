@@ -99,6 +99,22 @@ function sayNo(answer: string){
     if(yes.includes(answer)){ return true }
 }
 
+/*
+ISSUES AND DESIGN CHOICES
+
+I did not use orthogonal states, instead each property is treated as a slot to be filled (to context.slot_name).
+As long as a slot is unfilled (===undefined), the system will keep prompting for more information and update 
+the context slots accordingly (but only with new information, ie, the already-filled slots won't be overwritten).
+
+An issue I encountered was that the ASR automatically capitalises the first letter of a sentence and adding full stop at the end,
+which will cause the grammar parser to fail to recognise it. So I lowercase the input string, but that means that the <item> person_name </item>
+and words like 'I' in the SRXML must be written in lowercase too.
+
+
+*/
+
+
+
 export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
     initial: 'init',
     states: {
@@ -151,7 +167,6 @@ export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
                 //At least one slot unfilled
                 { target: 'askMore', cond: (context) => !context.person || !context.weekday || !context.time },
 
-                // { target: 'welcome' }
             ]
         },
 
