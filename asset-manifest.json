@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/lab4-framebased/static/css/main.a5a253b5.chunk.css",
-    "main.js": "/lab4-framebased/static/js/main.e1c60b03.chunk.js",
-    "main.js.map": "/lab4-framebased/static/js/main.e1c60b03.chunk.js.map",
-    "runtime-main.js": "/lab4-framebased/static/js/runtime-main.ab6e2c0c.js",
-    "runtime-main.js.map": "/lab4-framebased/static/js/runtime-main.ab6e2c0c.js.map",
-    "static/js/2.72f26d2f.chunk.js": "/lab4-framebased/static/js/2.72f26d2f.chunk.js",
-    "static/js/2.72f26d2f.chunk.js.map": "/lab4-framebased/static/js/2.72f26d2f.chunk.js.map",
-    "index.html": "/lab4-framebased/index.html",
-    "static/css/main.a5a253b5.chunk.css.map": "/lab4-framebased/static/css/main.a5a253b5.chunk.css.map",
-    "static/js/2.72f26d2f.chunk.js.LICENSE.txt": "/lab4-framebased/static/js/2.72f26d2f.chunk.js.LICENSE.txt"
+    "main.css": "/lab2-bot/static/css/main.a5a253b5.chunk.css",
+    "main.js": "/lab2-bot/static/js/main.e1c60b03.chunk.js",
+    "main.js.map": "/lab2-bot/static/js/main.e1c60b03.chunk.js.map",
+    "runtime-main.js": "/lab2-bot/static/js/runtime-main.d71b8e62.js",
+    "runtime-main.js.map": "/lab2-bot/static/js/runtime-main.d71b8e62.js.map",
+    "static/js/2.72f26d2f.chunk.js": "/lab2-bot/static/js/2.72f26d2f.chunk.js",
+    "static/js/2.72f26d2f.chunk.js.map": "/lab2-bot/static/js/2.72f26d2f.chunk.js.map",
+    "index.html": "/lab2-bot/index.html",
+    "static/css/main.a5a253b5.chunk.css.map": "/lab2-bot/static/css/main.a5a253b5.chunk.css.map",
+    "static/js/2.72f26d2f.chunk.js.LICENSE.txt": "/lab2-bot/static/js/2.72f26d2f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.ab6e2c0c.js",
+    "static/js/runtime-main.d71b8e62.js",
     "static/js/2.72f26d2f.chunk.js",
     "static/css/main.a5a253b5.chunk.css",
     "static/js/main.e1c60b03.chunk.js"
