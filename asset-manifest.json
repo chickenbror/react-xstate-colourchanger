@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/lab2-bot/static/css/main.a5a253b5.chunk.css",
-    "main.js": "/lab2-bot/static/js/main.74f08f57.chunk.js",
-    "main.js.map": "/lab2-bot/static/js/main.74f08f57.chunk.js.map",
+    "main.js": "/lab2-bot/static/js/main.966eb5e3.chunk.js",
+    "main.js.map": "/lab2-bot/static/js/main.966eb5e3.chunk.js.map",
     "runtime-main.js": "/lab2-bot/static/js/runtime-main.d71b8e62.js",
     "runtime-main.js.map": "/lab2-bot/static/js/runtime-main.d71b8e62.js.map",
     "static/js/2.fe84e20f.chunk.js": "/lab2-bot/static/js/2.fe84e20f.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.d71b8e62.js",
     "static/js/2.fe84e20f.chunk.js",
     "static/css/main.a5a253b5.chunk.css",
-    "static/js/main.74f08f57.chunk.js"
+    "static/js/main.966eb5e3.chunk.js"
   ]
 }
