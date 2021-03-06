@@ -12,14 +12,9 @@ function listen(): Action<SDSContext, SDSEvent> {
 
 function sharedRecognitions() {
     return [ 
-<<<<<<< Updated upstream
         // {on:{TIMEOUT:'.promptAgain'}},
-        { target: '#root.dm.help', cond: (context:SDSContext) =>  needHelp(context.recResult) },
-=======
-        
         { target: '#help', cond: (context:SDSContext) =>  needHelp(context.recResult) },
         { target: '#stop', cond: (context:SDSContext) =>  context.recResult==='stop' },
->>>>>>> Stashed changes
         { target: ".nomatch" }
         ]
 }
