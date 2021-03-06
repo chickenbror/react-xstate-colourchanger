@@ -32,7 +32,8 @@ const duckQuery = (query: string) =>
 		      {headers: { 'Origin': 'http://localhost:3000' }})).then(data => data.json());
 
 export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
-    initial: 'init',
+    id: 'Search',
+    initial: 'welcome',
     states: {
         init: {
             on: {

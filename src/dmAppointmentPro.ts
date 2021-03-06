@@ -116,7 +116,8 @@ and words like 'I' in the SRXML must be written in lowercase too.
 
 
 export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
-    initial: 'init',
+    id: 'Pro',
+    initial: 'welcome',
     states: {
         init: {
             on: {
@@ -226,7 +227,7 @@ export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
         //05
         done: {
             entry: say("Great, your appointment has been made."), 
-            on: { ENDSPEECH: "init" } 
+            on: { ENDSPEECH: "#root.dm.init" } 
            },
         
     },

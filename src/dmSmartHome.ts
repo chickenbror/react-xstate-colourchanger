@@ -60,7 +60,8 @@ function promptAndAsk(prompt: string): MachineConfig<SDSContext, any, SDSEvent> 
 
 
 export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
-    initial: 'init',
+    id: 'SmartHome',
+    initial: 'welcomePrompt',
     states: {
         init: {
             on: {
@@ -78,7 +79,7 @@ export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
                     ],
                 CLICK: 'stop'
                 },
-            ...promptAndAsk("Hi, what can I do for you?")
+            ...promptAndAsk("Please say your smart home command")
             },
         stop: {
             entry: say("Ok, stopped"),
@@ -93,7 +94,7 @@ export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
             states: {
                 prompt: {
                     entry: sayResponse,
-                    on: { ENDSPEECH: '#root.dm.init' }
+                    on: { ENDSPEECH: '#root.dm.init' } //init of dmMenu
                     },
                 
                 }

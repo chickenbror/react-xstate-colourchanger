@@ -12,8 +12,14 @@ function listen(): Action<SDSContext, SDSEvent> {
 
 function sharedRecognitions() {
     return [ 
+<<<<<<< Updated upstream
         // {on:{TIMEOUT:'.promptAgain'}},
         { target: '#root.dm.help', cond: (context:SDSContext) =>  needHelp(context.recResult) },
+=======
+        
+        { target: '#help', cond: (context:SDSContext) =>  needHelp(context.recResult) },
+        { target: '#stop', cond: (context:SDSContext) =>  context.recResult==='stop' },
+>>>>>>> Stashed changes
         { target: ".nomatch" }
         ]
 }
@@ -38,7 +44,7 @@ MachineConfig<SDSContext, any, SDSEvent> {
                         //if counter<3: counter++ & go to prompt-again state
                         {cond: () => counter() < 3, target:"question"},
                         //elif counter>=3: go to init state
-                        {target:"#root.dm.goodbye"}
+                        {target:"#goodbye"}
                          ] 
                               
                 },
@@ -112,24 +118,32 @@ const yes_or_no: { [index:string]:{yes_no?:boolean} } =
 //STATE MACHINE
 
 export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
-    initial: 'init',
+    id: 'Plus',
+    initial: 'welcome',
     states: {
 
         //Come here on recognising 'help'; 
         //then go back to last appointment.mainstate (stored in appointment.history)
         help: {
+            id:'help',
             entry: say("I am here if you need help."),
-            on: { ENDSPEECH: '#root.dm.appointment.history' }
+            on: { ENDSPEECH: '#appointment.history' }
             },
-        goodbye: {entry: say("You were silent for too many times. Bye for now."), 
+        stop: {
+            id:'stop',
+            entry: say("Ok, stopped."),
+            on: { ENDSPEECH: '#root.dm.init' }
+            },
+        goodbye: {id:'goodbye',
+            entry: say("You were silent for too many times. Bye for now."), 
                           
                     //Reset counter and go to init
-                     always: {cond: () => resetCounter()===true, target:"#root.dm.init"} 
+                     always: {cond: () => resetCounter()===true, target:"#root.dm.init"} //init of dmMenu if imported; else init hereafter
             },
         
         
         //State Idle
-        init: { 
+        init: { id:'PlusInit',
             on: {CLICK: 'welcome'} 
             },
 
@@ -140,6 +154,7 @@ export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
             },
 
         appointment :{
+            id:'appointment',
             initial: "who",
             states: {
         
@@ -283,7 +298,7 @@ export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
         //State 5
         done: {
              entry: say("Great, your appointment has been made."), 
-             on: { ENDSPEECH: "#root.dm.init" } 
+             on: { ENDSPEECH: "#root.dm.init" } //init of dmMenu
             },
         }
 

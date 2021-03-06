@@ -52,7 +52,7 @@ export const grammar = `
         <one-of>  
             <item> please </item> <item> thanks </item> <item> thank you </item> 
 			<item> could you </item> <item> would you </item> <item> can you </item> 
-			<item> will you </item> <item> i would like to </item> 
+			<item> will you </item> <item> i would like to </item>  <item> i want to </item> 
         </one-of>
    </rule>
 

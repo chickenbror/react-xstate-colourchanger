@@ -1,12 +1,13 @@
+
 import { MachineConfig, send, Action } from "xstate";
 
 // SRGS parser and example (logs the results to console on page load)
 import { loadGrammar } from './runparser'
 import { parse } from './chartparser'
-import { grammar } from './grammars/quoteGrammar'
+import { grammar } from './grammars/pizzaGrammar'
 
 const gram = loadGrammar(grammar)
-const input = "to do is to be"
+const input = "I would like a coca cola and three large pizzas with pepperoni and mushrooms"
 const prs = parse(input.split(/\s+/), gram)
 const result = prs.resultsForRule(gram.$root)[0]
 
@@ -37,14 +38,14 @@ function promptAndAsk(prompt: string): MachineConfig<SDSContext, any, SDSEvent> 
 
 
 export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
-    initial: 'init',
+    initial: 'welcome',
     states: {
         init: {
             on: {
                 CLICK: 'welcome'
             }
         },
-        welcome: {
+        welcome: {id:'ColourWelcome',
             on: {
                 RECOGNISED: [
                     { target: 'stop', cond: (context) => context.recResult === 'stop' },
@@ -54,7 +55,7 @@ export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
         },
         stop: {
             entry: say("Ok"),
-            always: 'init'
+            always: '#root.dm.init' //init of dmMenu
         },
         repaint: {
             initial: 'prompt',
@@ -65,7 +66,7 @@ export const dmMachine: MachineConfig<SDSContext, any, SDSEvent> = ({
                 },
                 repaint: {
                     entry: 'changeColour',
-                    always: '#root.dm.welcome'
+                    always: '#ColourWelcome'
                 }
             }
         }
