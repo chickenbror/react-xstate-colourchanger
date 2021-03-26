@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/lab2-bot/static/css/main.a5a253b5.chunk.css",
-    "main.js": "/lab2-bot/static/js/main.2f4171f7.chunk.js",
-    "main.js.map": "/lab2-bot/static/js/main.2f4171f7.chunk.js.map",
+    "main.css": "/lab2-bot/static/css/main.0098cc77.chunk.css",
+    "main.js": "/lab2-bot/static/js/main.f54ade1f.chunk.js",
+    "main.js.map": "/lab2-bot/static/js/main.f54ade1f.chunk.js.map",
     "runtime-main.js": "/lab2-bot/static/js/runtime-main.d71b8e62.js",
     "runtime-main.js.map": "/lab2-bot/static/js/runtime-main.d71b8e62.js.map",
-    "static/js/2.fe84e20f.chunk.js": "/lab2-bot/static/js/2.fe84e20f.chunk.js",
-    "static/js/2.fe84e20f.chunk.js.map": "/lab2-bot/static/js/2.fe84e20f.chunk.js.map",
+    "static/js/2.7e4cd9d8.chunk.js": "/lab2-bot/static/js/2.7e4cd9d8.chunk.js",
+    "static/js/2.7e4cd9d8.chunk.js.map": "/lab2-bot/static/js/2.7e4cd9d8.chunk.js.map",
     "index.html": "/lab2-bot/index.html",
-    "static/css/main.a5a253b5.chunk.css.map": "/lab2-bot/static/css/main.a5a253b5.chunk.css.map",
-    "static/js/2.fe84e20f.chunk.js.LICENSE.txt": "/lab2-bot/static/js/2.fe84e20f.chunk.js.LICENSE.txt"
+    "static/css/main.0098cc77.chunk.css.map": "/lab2-bot/static/css/main.0098cc77.chunk.css.map",
+    "static/js/2.7e4cd9d8.chunk.js.LICENSE.txt": "/lab2-bot/static/js/2.7e4cd9d8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d71b8e62.js",
-    "static/js/2.fe84e20f.chunk.js",
-    "static/css/main.a5a253b5.chunk.css",
-    "static/js/main.2f4171f7.chunk.js"
+    "static/js/2.7e4cd9d8.chunk.js",
+    "static/css/main.0098cc77.chunk.css",
+    "static/js/main.f54ade1f.chunk.js"
   ]
 }
